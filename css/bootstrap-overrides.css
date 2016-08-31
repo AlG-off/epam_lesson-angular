@@ -1,0 +1,13 @@
+
+.row{
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+.footer{
+	width:100%;
+	padding: 15px 15px 10px 15px;
+	margin-top: 15px;
+	background-color: gray;
+	text-align: center;
+}

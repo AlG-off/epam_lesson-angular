@@ -1,12 +1,13 @@
-app.controller('Homepage',['$scope', function($scope){
-	$scope.todoList = [
-		{name:"Ivan",task:"", date: new Date(2016,8,2,3,5),comment:""},
-		{name:"Lena",task:"", date:new Date(2016,8,22,13,5),comment:""},
-		{name:"Sasha",task:"", date:new Date(2016,8,12,3,5),comment:""}
-	];
-
-	$scope.selectedTodo = null;
-	$scope.visible = {show:true}
+app.controller('HomepageCtrl',['$scope', 'GetTodoList', function($scope, GetTodoList){
+	$scope.todoList = GetTodoList.todoList;
+	console.log($scope.todoList)
+	$scope.selectedTodo = {};
+	$scope.visible = {
+		show:false,
+		reverse: function(){
+			this.show = !this.show
+		}
+	}
 	$scope.edit = function(todo){
 		$scope.selectedTodo = {
 			todo: angular.copy(todo),
@@ -26,7 +27,7 @@ app.controller('Homepage',['$scope', function($scope){
 		$scope.cancel();
 	};
 	$scope.cancel = function(){
-		$scope.selectedTodo = null;
+		$scope.selectedTodo = {};
 	};
 
 }]);

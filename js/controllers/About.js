@@ -1,3 +1,3 @@
-app.controller('About',['$scope', function($scope){
+app.controller('AboutCtrl',['$scope', function($scope){
     $scope.about = "Lorem ipsum...";
 }]);

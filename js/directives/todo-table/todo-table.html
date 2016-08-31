@@ -1,0 +1,26 @@
+<div class="col-md-7 col-md-offset-2">
+    <table class="table table-striped">
+        <tr>
+            <th class="col-sm-2">Исполнитель</th>
+            <th class="col-sm-3">Задача</th>
+            <th class="col-sm-3">Срок</th>
+            <th class="col-sm-2">Комментарий</th>
+            <th class="col-sm-2"></th>
+        </tr>
+        <tr ng-repeat="todo in todoList track by $index">
+            <td ng-bind="todo.name"></td>
+            <td ng-bind="todo.task"></td>
+            <td ng-bind="todo.date|date:'dd-MM-yyyy HH:mm'"></td>
+            <td ng-bind="todo.comment"></td>
+            <td>
+                <button type="button" class="btn btn-primary" ng-click="edit(todo)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="button" class="btn btn-danger" ng-click="delete()">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <button type="button" class="btn btn-info" ng-click="visible.reverse()">Добавить</button>
+</div>
