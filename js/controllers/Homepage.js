@@ -1,34 +1,34 @@
 app.controller('HomepageCtrl',['$scope', 'GetTodoList', function($scope, GetTodoList){
-	$scope.todoList = GetTodoList.todoList;
-	console.log($scope.todoList)
+	//$scope.todoList = GetTodoList.todoList;
 	$scope.selectedTodo = {};
 	$scope.visible = {
-		show:false,
-		reverse: function(){
-			this.show = !this.show
-		}
-	}
-	$scope.edit = function(todo){
-		$scope.selectedTodo = {
-			todo: angular.copy(todo),
-			index: this.$index
+		state:false,
+		show:function(){
+			this.state = true
+		},
+		hide:function(){
+			this.state = false
 		}
 	};
-	$scope.add = function(todo){
-		if(!$scope.selectedTodo.index) {
-			$scope.todoList.push(todo)
-		}else {
-			$scope.todoList.splice($scope.selectedTodo.index, 1, todo)
+	$scope.todoList = [
+		{
+			"name": "Ivan",
+			"task": "",
+			"date": new Date("2016-09-01T23:05:00.000Z"),
+			"comment": ""
+		},
+		{
+			"name": "Lena",
+			"task": "",
+			"date": new Date("2016-09-22T09:05:00.000Z"),
+			"comment": ""
+		},
+		{
+			"name": "Sasha",
+			"task": "",
+			"date": new Date("2016-09-11T23:05:00.000Z"),
+			"comment": ""
 		}
-		$scope.cancel()
-	};
-	$scope.delete = function(){
-		$scope.todoList.splice(this.$index,1);
-		$scope.cancel();
-	};
-	$scope.cancel = function(){
-		$scope.selectedTodo = {};
-	};
-
+	];
 }]);
 

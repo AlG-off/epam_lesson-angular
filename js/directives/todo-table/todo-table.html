@@ -13,14 +13,14 @@
             <td ng-bind="todo.date|date:'dd-MM-yyyy HH:mm'"></td>
             <td ng-bind="todo.comment"></td>
             <td>
-                <button type="button" class="btn btn-primary" ng-click="edit(todo)">
+                <button type="button" class="btn btn-primary" ng-click="tableCtrl.edit(todo, $index)">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </button>
-                <button type="button" class="btn btn-danger" ng-click="delete()">
+                <button type="button" class="btn btn-danger" ng-click="tableCtrl.delete($index)">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
             </td>
         </tr>
     </table>
-    <button type="button" class="btn btn-info" ng-click="visible.reverse()">Добавить</button>
+    <button type="button" class="btn btn-info" ng-click="visible.show()">Добавить</button>
 </div>

@@ -1,4 +1,5 @@
-<div ng-if="visible.show" class="col-sm-3">
+<div ng-if="visible.state" class="col-sm-3">
+    <button ng-click="visible.hide()">X</button>
     <ng-form>
         <div >
             <input type="text" ng-model="selectedTodo.todo.name" placeholder="Имя исполнителя">
@@ -6,7 +7,7 @@
             <input type="datetime-local" ng-model="selectedTodo.todo.date">
             <textarea ng-model="selectedTodo.todo.comment"></textarea>
         </div>
-        <button type="button" class="btn btn-success" ng-click="add(selectedTodo.todo)">Ок</button>
-        <button type="button" class="btn btn-danger" ng-click="cancel()">Отмена</button>
+        <button type="button" class="btn btn-success" ng-click="formCtrl.add(selectedTodo.todo)">Ок</button>
+        <button type="button" class="btn btn-danger" ng-click="formCtrl.cancel()">Отмена</button>
     </ng-form>
 </div>
