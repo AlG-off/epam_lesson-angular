@@ -1,13 +1,28 @@
-<div ng-if="visible.state" class="col-sm-3">
-    <button ng-click="visible.hide()">X</button>
-    <ng-form>
-        <div >
-            <input type="text" ng-model="selectedTodo.todo.name" placeholder="Имя исполнителя">
-            <input type="text" ng-model="selectedTodo.todo.task" placeholder="Содержание задачи">
-            <input type="datetime-local" ng-model="selectedTodo.todo.date">
+<div ng-if="tableCtrl.visible.state" class="col-sm-3">
+    <button ng-click="tableCtrl.visible.hide()">X</button>
+    <ng-form name="additionForm">
+        <div ><p>Исполнитель*</p>
+            <select ng-model="selectedTodo.todo.name" required>
+                <option select disabled>Выберите исполнителя</option>
+                <option ng-repeat="user in tableCtrl.userList" value="{{user.name}}" ng-bind="user.name"></option>
+            </select>
+            <p>Задача*</p>
+            <input type="text" ng-model="selectedTodo.todo.task" placeholder="Содержание задачи" required>
+            <p>Статус*</p>
+            <select ng-model="selectedTodo.todo.state" required>
+                <option disabled>Статус задания</option>
+                <option selected value="Новое">Новое</option>
+                <option value="В процессе">В процессе</option>
+                <option value="Частично выполнено">Частично выполнено</option>
+                <option value="Выполнено">Выполнено</option>
+            </select>
+            <p>Срок*</p>
+            <input type="datetime-local" ng-model="selectedTodo.todo.date" required>
+            <p>Комментарий</p>
             <textarea ng-model="selectedTodo.todo.comment"></textarea>
         </div>
-        <button type="button" class="btn btn-success" ng-click="formCtrl.add(selectedTodo.todo)">Ок</button>
-        <button type="button" class="btn btn-danger" ng-click="formCtrl.cancel()">Отмена</button>
+        <button type="submit" class="btn btn-success" ng-click="tableCtrl.add(selectedTodo.todo, additionForm)">Ок</button>
+        <button type="button" class="btn btn-danger" ng-click="tableCtrl.cancel()">Отмена</button>
+        <p>* - Поля обязательные для заполнения</p>
     </ng-form>
 </div>

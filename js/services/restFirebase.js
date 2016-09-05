@@ -1,5 +1,5 @@
 app.service('restFirebase', ['$resource', function ($resource) {
-    this.getRest = function () {
-        return $resource('todoList.json');
+    this.getDB = function () {
+        return $resource(':url/:list.json',{});
     }
-}])
+}]);
